@@ -1,0 +1,23 @@
+{
+  "hello_world": [
+    "echo Hello, World!"
+  ],
+  "list_dir": [
+    "echo $HOME | ls"
+  ],
+  "build":[
+
+  ],
+  "push":[
+
+  ],
+  "deploy": [
+
+  ],
+  "rundev": [
+
+  ],
+  "killdev": [
+
+  ]
+}
