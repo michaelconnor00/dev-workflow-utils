@@ -6,5 +6,6 @@ dev_workflow_utils.egg-info/PKG-INFO
 dev_workflow_utils.egg-info/SOURCES.txt
 dev_workflow_utils.egg-info/dependency_links.txt
 dev_workflow_utils.egg-info/entry_points.txt
+dev_workflow_utils.egg-info/pbr.json
 dev_workflow_utils.egg-info/requires.txt
 dev_workflow_utils.egg-info/top_level.txt

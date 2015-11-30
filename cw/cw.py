@@ -22,7 +22,7 @@ import json
 import os
 
 
-VERSION = '0.9'
+VERSION = '0.10'
 
 
 def init(args):
@@ -48,13 +48,14 @@ def list_commands(args):
         print ('\t%s' % command)
 
 
-def run(command_list):
+def run(command_list, command_args):
     """
     Blindly run the commands provided in the list.
     :param command_list: list of commands and arguments
     """
     for command in command_list:
-        call(command, shell=True)
+        command_with_args = command.format(*command_args)
+        call(command_with_args, shell=True)
 
 
 def parse_config(filename=None):
@@ -64,20 +65,10 @@ def parse_config(filename=None):
         config = json.loads(f.read())
     return config
 
-    # config_commands = {}
-    # for key, commands in config.iteritems():
-    #     # commands is a list of strings
-    #     split_commands = []
-    #     for command in commands:
-    #         split_commands.append(command)#.split())
-    #     config_commands[key] = split_commands
-    #
-    # return config_commands
-
 
 def main():
     arguments = docopt(__doc__)
-    # print arguments
+    print arguments
 
     # Load config files
     global CONFIG_COMMANDS
@@ -88,7 +79,7 @@ def main():
             CONFIG_COMMANDS = parse_config(arguments['--config-file'])
     except IOError:
         print ("Config file cannot be found, name must commands.json, or pass custom location")
-        exit(1)
+        # exit(1)  # exit if custom commands cannot be found?
 
     base_commands = {
         '--version': version,
@@ -100,7 +91,7 @@ def main():
     try:
         if arguments['<command>'] is not None and CONFIG_COMMANDS is not None:
             command_found = True
-            run(CONFIG_COMMANDS[arguments['<command>']])
+            run(CONFIG_COMMANDS[arguments['<command>']], command_args=arguments['<command_arg>'])
 
         for key, value in arguments.iteritems():
             if value and key in base_commands.keys():

@@ -3,7 +3,8 @@
     "echo Hello, World!"
   ],
   "list_dir": [
-    "echo $HOME | ls"
+    "echo {0} | ls",
+    "locate cw"
   ],
   "build":[
 
