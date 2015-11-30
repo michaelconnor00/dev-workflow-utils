@@ -64,11 +64,12 @@ target/
 *.iml
 
 ## Directory-based project format:
-.idea/
+.idea/*
+.idea/inspectionProfiles/*
 # if you remove the above rule, at least ignore the following:
 
 # User-specific stuff:
-.idea/workspace.xml
+#.idea/workspace.xml
 # .idea/tasks.xml
 # .idea/dictionaries
 
