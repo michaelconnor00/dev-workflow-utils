@@ -38,7 +38,7 @@ A basic example of a defined command:
 
   "psql_host": ["psql -U postgres -h my_container"]
 
-Using the command wrapper tool, the command is executed by ``cw psql_host``. Where the key name from the json object is the command name.
+Using the command wrapper tool, the command is executed by ``cw psql_host``. Where the key name from the json object is the command name. Please note the commands defined in commands.json must be platform compatible. That means they should be compatible with your operatins system.
 
 Here is an example of a command that wraps two seperate commands:
 
